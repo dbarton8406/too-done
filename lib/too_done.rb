@@ -16,13 +16,15 @@ module TooDone
       :desc => "A Due Date in YYYY-MM-DD format."
     def add(task)
        puts  " creating a todo list #{task}"
-       list= todo_list.find_or_create_by(name: current_user,
+       user = current_user
+       list= todo_list.find_or_create_by(name: option[:list] ,
                                          user_id: user_id,
-                                         option[:list])
+                                         )
       # find or create the right todo list
-      list= Task.create(todo_list_id: todo_list_id,
+      task= Task.create(todo_list_id: todo_list_id,
                         task: task 
-                        task_complete: false
+                        task_complete: null : false 
+                        # 'unexpected tidetifier line 26'
                         task_due_by:[options: date])
       # create a new item under that list, with optional date
       puts "Created new task: #{task}"
@@ -33,9 +35,23 @@ module TooDone
     option :list, :aliases => :l, :default => "*default*",
       :desc => "The todo list whose tasks will be edited."
     def edit
+      puts  " editing a todo list #{task}"
+      user= current_user
+      task= Task.find_by(name: options[:todo_list)
       # find the right todo list
+      if todo_list == nil
+        puts " This is not a todo list, please try again."
+      elsif todo_list.task.empty?
+        puts " This todo list is empty, please try again. "
+      else 
+        puts puts "ID: #{task.id} | 
+                   Task: #{task.name} | 
+                   Due: #{due_date} |
+                   Completed: #{task.is_completed}" 
+        puts " Which task would you like to edit? "
       # BAIL if it doesn't exist and have tasks
       # display the tasks and prompt for which one to edit
+        
       # allow the user to change the title, due date
     end
 

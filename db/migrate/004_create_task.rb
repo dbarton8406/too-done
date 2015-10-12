@@ -5,7 +5,7 @@ class CreateTask < ActiveRecord::Migration
    	t.string :name, null: false
    	t.interger :todo_list_id, null: false
    	t.datetime :task_due_by
-   	t.boolean :task_complete_by
+   	t.boolean :task_complete, null:false
    	
     end
   end
