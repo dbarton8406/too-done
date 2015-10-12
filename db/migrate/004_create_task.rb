@@ -4,8 +4,8 @@ class CreateTask < ActiveRecord::Migration
    	# belongs_to list in model
    	t.string :name, null: false
    	t.interger :todo_list_id, null: false
-   	t.datetime :task_due
-   	t.boolean :task_completed
+   	t.datetime :task_due_by
+   	t.boolean :task_complete_by
    	
     end
   end

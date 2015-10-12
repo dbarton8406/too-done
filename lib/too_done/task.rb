@@ -1,5 +1,5 @@
 module TooDone
   class Item < ActiveRecord::Base
-    belongs_to :
+    belongs_to : todo_list
   end
 end
